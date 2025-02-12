@@ -18,3 +18,9 @@ class Car:
         self.speed = 0
         self.center = [self.position[0] + CAR_SIZE_X / 2, self.position[1] + CAR_SIZE_Y / 2]
         self.alive = True
+
+
+    def update(self, game_map):
+        self.rotated_sprite = self.rotate_center(self.sprite, self.angle)
+        self.position[0] += math.cos(math.radians(360 - self.angle)) * self.speed
+        self.position[1] += math.sin(math.radians(360 - self.angle)) * self.speed
